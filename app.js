@@ -1,4 +1,6 @@
-//from free code camp
+//FROM FREE CODE CAMP
+
+//arrays, objects, for loops
 
 var contacts = [
   {
@@ -41,3 +43,14 @@ function lookUpProfile(name, prop){
 }
 
 lookUpProfile("Akira", "likes");
+
+//recursion
+
+function rangeOfNumbers(startNum, endNum) {
+  if (startNum > endNum) {
+    return [];
+  }
+  const countArray = rangeOfNumbers(startNum, endNum - 1);
+  countArray.push(endNum);
+  return countArray;
+};
