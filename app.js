@@ -119,3 +119,12 @@ function makeList(arr) {
 const resultDisplayArray = makeList(result.failure);
 
 console.log(resultDisplayArray);
+
+// Concise Object Literal Declarations Using Object Property Shorthand
+
+const createPerson = (name, age, gender) => {
+  "use strict";
+  return ({ name, age, gender });
+};
+
+createPerson("Adrienne", 44, "female");
