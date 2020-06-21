@@ -149,3 +149,41 @@ const thermos = new Thermostat(76); // Setting in Fahrenheit scale
 let temp = thermos.temperature; // 24.44 in Celsius
 thermos.temperature = 26;
 temp = thermos.temperature; // 26 in Celsius
+
+// promise, then, and catch
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  let responseFromServer = false;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+
+makeServerRequest.then(result => {
+  console.log(result);
+});
+
+makeServerRequest.catch(error => {
+  console.log(error);
+});
+
+// alternative
+
+// makeServerRequest.then(result => {
+//   console.log(result);
+// }).catch(error => {
+//   console.log(error);
+// });
+
+// alternative
+
+// function logger(whatever) {
+//   console.log(whatever);
+// }
+
+// makeServerRequest.then(logger).catch(error => {
+//   console.log(error);
+// });
