@@ -119,3 +119,33 @@ function makeList(arr) {
 const resultDisplayArray = makeList(result.failure);
 
 console.log(resultDisplayArray);
+
+// Concise Object Literal Declarations Using Object Property Shorthand
+
+const createPerson = (name, age, gender) => {
+  "use strict";
+  return ({ name, age, gender });
+};
+
+createPerson("Adrienne", 44, "female");
+
+// getters and setters in an object
+
+class Thermostat {
+  constructor(fahrenheit) {
+    this._fahrenheit = fahrenheit;
+  }
+
+  get temperature() {
+    return 5/9 * (this._fahrenheit - 32);
+  }
+
+  set temperature(celcius) {
+    this._fahrenheit = celcius * 9.0 / 5 + 32;
+  }
+}
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
