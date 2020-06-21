@@ -187,3 +187,4 @@ makeServerRequest.catch(error => {
 // makeServerRequest.then(logger).catch(error => {
 //   console.log(error);
 // });
+
