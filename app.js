@@ -188,3 +188,9 @@ makeServerRequest.catch(error => {
 //   console.log(error);
 // });
 
+
+// regix - username
+
+let username = "JackOfAllTrades";
+let userCheck = /^\D\w{1,}/; // Change this line
+let result = userCheck.test(username);
