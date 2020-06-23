@@ -202,3 +202,19 @@ let result = userCheck.test(username);
 // 3) Username letters can be lowercase and uppercase.
 
 // 4) Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+
+
+// Regex look aheads
+
+// Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long, do not begin with numbers, and have two consecutive digits.
+
+let sampleWord = "astronaut";
+let pwRegex = /^\D(?=.*\d{2}.*)(?=.{5,})/; 
+let result = pwRegex.test(sampleWord);
+
+
+// Regex - mixed groupings
+
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor)\s.*Roosevelt/; 
+let result = myRegex.test(myString); 
