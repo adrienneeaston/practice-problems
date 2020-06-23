@@ -209,5 +209,12 @@ let result = userCheck.test(username);
 // Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long, do not begin with numbers, and have two consecutive digits.
 
 let sampleWord = "astronaut";
-let pwRegex = /^\D(?=.*\d{2}.*)(?=.{5,})/; // Change this line
+let pwRegex = /^\D(?=.*\d{2}.*)(?=.{5,})/; 
 let result = pwRegex.test(sampleWord);
+
+
+// Regex - mixed groupings
+
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor)\s.*Roosevelt/; 
+let result = myRegex.test(myString); 
