@@ -218,3 +218,11 @@ let result = pwRegex.test(sampleWord);
 let myString = "Eleanor Roosevelt";
 let myRegex = /(Franklin|Eleanor)\s.*Roosevelt/; 
 let result = myRegex.test(myString); 
+
+// data structures - slice
+
+function forecast(arr) {
+  let newArray = arr.slice(2, 4);
+  return newArray;
+}
+console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
