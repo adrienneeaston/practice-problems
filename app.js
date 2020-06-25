@@ -219,7 +219,6 @@ let myString = "Eleanor Roosevelt";
 let myRegex = /(Franklin|Eleanor)\s.*Roosevelt/; 
 let result = myRegex.test(myString); 
 
-
 // Regex - capture groups and reusing patterns
 
 // Use capture groups in reRegex to match numbers that are repeated only three times in a string, each separated by a space.
@@ -233,3 +232,46 @@ let result = reRegex.test(repeatNum);
 let hello = "   Hello, World!  ";
 let wsRegex = /^\s*(.*\S)\s*$/; 
 let result = hello.replace(wsRegex, '$1'); 
+
+// data structures - slice
+
+function forecast(arr) {
+  let newArray = arr.slice(2, 4);
+  return newArray;
+}
+console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+
+// data structures - spread operators
+
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.push([...arr])
+    num--;
+  }
+  return newArr;
+}
+
+console.log(copyMachine([true, false, true], 2));
+
+// More spread operators
+
+function spreadOut() {
+  let fragment = ['to', 'code'];
+  let sentence = ['learning', ...fragment, 'is', 'fun'];
+  return sentence;
+}
+
+console.log(spreadOut());
+
+// let...in
+
+function countOnline(usersObj) {
+  let counter = 0;
+  for (let user in usersObj) {
+    if(usersObj[user].online == true) {
+      counter++;   
+    }
+  }
+  return counter;
+}
