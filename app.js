@@ -263,3 +263,15 @@ function spreadOut() {
 }
 
 console.log(spreadOut());
+
+// let...in
+
+function countOnline(usersObj) {
+  let counter = 0;
+  for (let user in usersObj) {
+    if(usersObj[user].online == true) {
+      counter++;   
+    }
+  }
+  return counter;
+}
