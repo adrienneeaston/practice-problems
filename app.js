@@ -332,3 +332,26 @@ function addFriend(userObj, friend) {
 }
 
 console.log(addFriend(user, 'Pete'));
+
+// Return largest numbers in array
+
+function largestOfFour(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let temp = -Infinity;
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] > temp) {
+        temp = arr[i][j];
+      }  
+    }
+    console.log(temp);
+    newArr.push(temp);  
+    
+    // let high = Math.max.apply(null, arr[i]);
+    // newArr.push(high);
+
+  }
+  return newArr;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
