@@ -355,3 +355,15 @@ function largestOfFour(arr) {
 }
 
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+// comfirm ending of a string
+
+function confirmEnding(str, target) {
+  let newStr = str.split("").slice(str.length - target.length).join("");
+  if (newStr == target) {
+    return true
+  }
+  return false;
+}
+
+confirmEnding("Bastian", "n");
