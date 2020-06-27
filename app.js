@@ -382,3 +382,17 @@ function findElement(arr, func) {
 }
 
 findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+// Title Case a Senetence
+
+function titleCase(str) {
+  str = str.split(" ");
+  for (let i = 0; i < str.length; i++) {
+    let letter = str[i][0].toUpperCase();
+    let moreLetters = str[i].slice(1).toLowerCase();
+    str[i] = letter + moreLetters;
+  }  
+  return str.join(" ");
+}
+
+titleCase("I'm a little tea pot");
