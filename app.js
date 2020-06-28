@@ -624,3 +624,12 @@ let glideMixin = function(obj) {
 
 glideMixin(bird);
 glideMixin(boat);
+
+// creating and accessing private variable
+
+function Bird() {
+  let weight = 15;
+  this.getWeight = function() {
+    return weight;
+  };
+}
