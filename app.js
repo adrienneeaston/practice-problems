@@ -603,3 +603,24 @@ Penguin.prototype.fly = function() {return "Alas, this is a flightless bird."}
 
 let penguin = new Penguin();
 console.log(penguin.fly());
+
+// Mixins
+
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+let glideMixin = function(obj) {
+  obj.glide = function() {
+    console.log("I am gliding!");
+  }
+};
+
+glideMixin(bird);
+glideMixin(boat);
