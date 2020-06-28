@@ -473,3 +473,70 @@ function chunkArrayInGroups(arr, size) {
 }
 
 chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+//Object oriented Propgramming - own properties
+
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+
+for (let property in canary) {
+  if(canary.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
+}
+
+// Iterate over all properties - own and prototype
+
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+let beagle = new Dog("Snoopy");
+
+let ownProps = [];
+let prototypeProps = [];
+
+for (let property in beagle) {
+  if(beagle.hasOwnProperty(property)) {
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
+}
+
+// Understand the constructor property
+
+function Dog(name) {
+  this.name = name;
+}
+
+function joinDogFraternity(candidate) {
+  if (candidate.constructor === Dog) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Change the prototype to a new object
+
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype = {
+  numLegs: 4,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
