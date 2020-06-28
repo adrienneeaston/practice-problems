@@ -367,3 +367,45 @@ function confirmEnding(str, target) {
 }
 
 confirmEnding("Bastian", "n");
+
+// Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
+
+function findElement(arr, func) {
+  let num = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (func(arr[i]) == true) {
+      num = arr[i];
+      return num;
+    }
+  }
+  return undefined;
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+// Title Case a Senetence
+
+function titleCase(str) {
+  str = str.split(" ");
+  for (let i = 0; i < str.length; i++) {
+    let letter = str[i][0].toUpperCase();
+    let moreLetters = str[i].slice(1).toLowerCase();
+    str[i] = letter + moreLetters;
+  }  
+  return str.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+// You are given two arrays and an index.
+// Use the array methods slice and splice to copy each element of the first array into the second array, in order.
+// Begin inserting elements at index n of the second array.
+// Return the resulting array. The input arrays should remain the same after the function runs.
+
+function frankenSplice(arr1, arr2, n) {
+  let newArr = [...arr2];
+  newArr.splice(n, 0, ...arr1);
+  return newArr;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
