@@ -442,3 +442,34 @@ function getIndexToIns(arr, num) {
   }
   return arr.length;
 }
+
+// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+function mutation(arr) {
+  let mainStr = arr[0].toLowerCase();
+  let targetStr = arr[1].toLowerCase();
+  for (let i = 0; i < targetStr.length; i++) {
+    if (!mainStr.includes(targetStr[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+mutation(["hello", "hey"]);
+
+// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+function chunkArrayInGroups(arr, size) {
+  let newArr = [];
+  let counter = 0;
+  let start = 0;
+  while (counter < arr.length/size) {
+    newArr.push(arr.slice(start, start + size))
+    counter++;
+    start = start + size;
+  }
+  return newArr;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
