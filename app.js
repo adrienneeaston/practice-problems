@@ -442,3 +442,18 @@ function getIndexToIns(arr, num) {
   }
   return arr.length;
 }
+
+// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+function mutation(arr) {
+  let mainStr = arr[0].toLowerCase();
+  let targetStr = arr[1].toLowerCase();
+  for (let i = 0; i < targetStr.length; i++) {
+    if (!mainStr.includes(targetStr[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+mutation(["hello", "hey"]);
