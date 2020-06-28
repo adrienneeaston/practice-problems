@@ -409,3 +409,24 @@ function frankenSplice(arr1, arr2, n) {
 }
 
 frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+// remove all falsey values from an array
+
+function bouncer(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    if (!arr[i]) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+
+// for(let i = arr.length - 1; i >= 0; i--) {
+//   if (!arr[i]) {
+//     arr.splice(i, 1);
+//   }
+// }
+
+  return arr;
+}
+
+bouncer([7, "ate", "", false, 9]);
