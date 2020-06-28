@@ -510,3 +510,17 @@ for (let property in beagle) {
     prototypeProps.push(property);
   }
 }
+
+// Understand the constructor property
+
+function Dog(name) {
+  this.name = name;
+}
+
+function joinDogFraternity(candidate) {
+  if (candidate.constructor === Dog) {
+    return true;
+  } else {
+    return false;
+  }
+}
