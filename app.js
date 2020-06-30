@@ -807,3 +807,20 @@ var ratings = [];
 watchList.map(obj => ratings.push({title: obj["Title"],  rating: obj["imdbRating"]}));
 
 console.log(JSON.stringify(ratings));
+
+// Implemet map on a prototype
+
+// The global variable
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback){
+  var newArray = [];
+  
+  this.forEach(element => newArray.push(callback(element)));
+
+  return newArray;
+};
+
+var new_s = s.myMap(function(item){
+  return item * 2;
+});
