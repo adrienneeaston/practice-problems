@@ -971,3 +971,11 @@ function sliceArray(anim, beginSlice, endSlice) {
 }
 var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
 sliceArray(inputAnim, 1, 3);
+
+// remove elements from an array using slice rather than splice
+
+function nonMutatingSplice(cities) {
+  return cities.slice(0, 3);
+}
+var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+nonMutatingSplice(inputCities);
