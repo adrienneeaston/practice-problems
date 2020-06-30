@@ -963,3 +963,11 @@ Array.prototype.myFilter = function(callback){
 var new_s = s.myFilter(function(item){
   return item % 2 === 1;
 });
+
+// return part of an array using slice
+
+function sliceArray(anim, beginSlice, endSlice) {
+  return anim.slice(beginSlice, endSlice);
+}
+var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+sliceArray(inputAnim, 1, 3);
