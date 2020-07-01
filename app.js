@@ -1137,3 +1137,84 @@ const squareList = (arr) => {
 
 const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
 console.log(squaredIntegers);
+
+// sort array alphabetically 
+
+function alphabeticalOrder(arr) {
+  return arr.sort(function(a, b) {
+    return a === b ? 0 : a > b ? 1 : -1;
+  });
+}
+
+alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
+
+// return sorted array without changing original
+
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  let newArr = arr.concat();
+  return newArr.sort(function(a, b) {
+    return a - b;
+  });
+}
+
+nonMutatingSort(globalArray);
+
+// split method with regex
+
+function splitify(str) {
+  return str.split(/\W/);
+}
+
+splitify("Hello World,I-am code");
+
+// join method with regex
+
+function sentensify(str) {
+  return str.split(/\W/).join(" ");
+}
+sentensify("May-the-force-be-with-you");
+
+// convert string to URL slug
+
+var globalTitle = "Winter Is Coming";
+
+function urlSlug(title) {
+  title = title.split(/\s+/);
+  if (title[0] == "") {
+    title.splice(0, 1);
+  }
+  return title.join("-").toLowerCase();
+}
+
+// every method
+
+function checkPositive(arr) {
+  return arr.every(function(currentValue) {
+    return currentValue >= 0;
+  });
+}
+
+checkPositive([1, 2, 3, -4, 5]);
+
+// some method
+
+function checkPositive(arr) {
+  return arr.some(function(currentValue) {
+    return currentValue >= 0;
+  });
+}
+
+checkPositive([1, 2, 3, -4, 5]);
+
+// currying 
+
+function add(x) {
+  return function(y) {
+    return function(z) {
+      return x + y + z;
+    }
+  }
+}
+
+add(10)(20)(30);
