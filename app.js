@@ -1126,3 +1126,14 @@ function getRating(watchList){
   return averageRating;
 }
 console.log(getRating(watchList));
+
+// higher order functions
+
+const squareList = (arr) => {
+  let newArr = arr.filter(num => num >= 0 && Number.isInteger(num));
+  newArr = newArr.map(num => num * num);
+  return newArr;
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);
