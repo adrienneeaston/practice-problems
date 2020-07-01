@@ -1160,10 +1160,17 @@ function nonMutatingSort(arr) {
 
 nonMutatingSort(globalArray);
 
-// split method
+// split method with regex
 
 function splitify(str) {
   return str.split(/\W/);
 }
 
 splitify("Hello World,I-am code");
+
+// join method with regex
+
+function sentensify(str) {
+  return str.split(/\W/).join(" ");
+}
+sentensify("May-the-force-be-with-you");
