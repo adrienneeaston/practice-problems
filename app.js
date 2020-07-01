@@ -1147,3 +1147,14 @@ function alphabeticalOrder(arr) {
 }
 
 alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
+
+// return sorted array without changing original
+
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  let newArr = arr.concat();
+  return newArr.sort(function(a, b) {
+    return a - b;
+  });
+}
+nonMutatingSort(globalArray);
