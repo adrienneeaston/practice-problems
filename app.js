@@ -1174,3 +1174,15 @@ function sentensify(str) {
   return str.split(/\W/).join(" ");
 }
 sentensify("May-the-force-be-with-you");
+
+// convert string to URL slug
+
+var globalTitle = "Winter Is Coming";
+
+function urlSlug(title) {
+  title = title.split(/\s+/);
+  if (title[0] == "") {
+    title.splice(0, 1);
+  }
+  return title.join("-").toLowerCase();
+}
