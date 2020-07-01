@@ -1194,4 +1194,15 @@ function checkPositive(arr) {
     return currentValue >= 0;
   });
 }
+
+checkPositive([1, 2, 3, -4, 5]);
+
+// some method
+
+function checkPositive(arr) {
+  return arr.every(function(currentValue) {
+    return currentValue >= 0;
+  });
+}
+
 checkPositive([1, 2, 3, -4, 5]);
