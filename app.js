@@ -1200,9 +1200,21 @@ checkPositive([1, 2, 3, -4, 5]);
 // some method
 
 function checkPositive(arr) {
-  return arr.every(function(currentValue) {
+  return arr.some(function(currentValue) {
     return currentValue >= 0;
   });
 }
 
 checkPositive([1, 2, 3, -4, 5]);
+
+// currying 
+
+function add(x) {
+  return function(y) {
+    return function(z) {
+      return x + y + z;
+    }
+  }
+}
+
+add(10)(20)(30);
