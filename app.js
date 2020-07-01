@@ -1157,4 +1157,13 @@ function nonMutatingSort(arr) {
     return a - b;
   });
 }
+
 nonMutatingSort(globalArray);
+
+// split method
+
+function splitify(str) {
+  return str.split(/\W/);
+}
+
+splitify("Hello World,I-am code");
