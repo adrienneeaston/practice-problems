@@ -1186,3 +1186,12 @@ function urlSlug(title) {
   }
   return title.join("-").toLowerCase();
 }
+
+// every method
+
+function checkPositive(arr) {
+  return arr.every(function(currentValue) {
+    return currentValue >= 0;
+  });
+}
+checkPositive([1, 2, 3, -4, 5]);
