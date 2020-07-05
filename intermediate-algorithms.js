@@ -125,3 +125,15 @@ function whatIsInAName(collection, source) {
 
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
+// Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+function spinalCase(str) {
+
+  let re = /[_]|\s|((?<=[A-Za-z])[A-Z])/g;
+  str = re[Symbol.replace](str, '-$1');
+
+  return str.toLowerCase();
+}
+
+spinalCase('ThisIs Spinal Tap'); 
+
