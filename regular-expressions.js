@@ -42,3 +42,25 @@ let result = reRegex.test(repeatNum);
 let hello = "   Hello, World!  ";
 let wsRegex = /^\s*(.*\S)\s*$/; 
 let result = hello.replace(wsRegex, '$1'); 
+
+// Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+function spinalCase(str) {
+
+  // puts space before each captial letter besides begining
+  str = str.split("");
+  for(let i = str.length - 1; i > 0; i--) {
+    if (str[i].match(/[A-Z]/) && str[i - 1].match(/[a-zA-Z]/)) {
+      str.splice(i, 0, " ");
+    }
+  }
+  str = str.join("");
+
+  // replaces spaces of any size and underscores with "-"
+  let re = /[_]|\s+/g;
+  str = re[Symbol.replace](str, "-");
+
+  return str.toLowerCase();
+}
+
+spinalCase('ThisIs Spinal Tap');
