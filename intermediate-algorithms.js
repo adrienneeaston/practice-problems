@@ -129,17 +129,11 @@ whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: 
 
 function spinalCase(str) {
 
-  // puts space before each captial letter besides begining
-  let re = /((?<=[A-Za-z])[A-Z])/g;
-  str = re[Symbol.replace](str, ' $1')
-
-  // replaces spaces of any size and underscores with "-"
-  re = /[_]|\s+/g;
-  str = re[Symbol.replace](str, "-");
+  let re = /[_]|\s|((?<=[A-Za-z])[A-Z])/g;
+  str = re[Symbol.replace](str, '-$1');
 
   return str.toLowerCase();
 }
 
-spinalCase('ThisIs Spinal Tap');
-console.log(spinalCase('ThisIs Spinal Tap'));
+spinalCase('ThisIs Spinal Tap'); 
 
