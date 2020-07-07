@@ -137,3 +137,26 @@ function spinalCase(str) {
 
 spinalCase('ThisIs Spinal Tap'); 
 
+// change word to piglatin
+
+function translatePigLatin(str) {
+
+  // let reCons = /^[A-Za-z][^aeiou]/;
+
+  let reCon = /(^[A-Za-z+](?=[aeiou]))(\w*)/;
+
+  let reVowel = /(^[A-Za-z])(\w*)/;
+  // str = re[Symbol.replace](str, '$1$2way')
+
+ if(/^[aeiou]/.test(str)) {
+  str = reVowel[Symbol.replace](str, '$1$2way')
+  console.log(str);
+ }
+ str = reCon[Symbol.replace](str, '$2$1ay')
+  console.log(str);
+
+  return str;
+}
+
+translatePigLatin("consonant");
+
