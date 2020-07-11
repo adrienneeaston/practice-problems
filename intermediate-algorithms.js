@@ -160,3 +160,19 @@ function translatePigLatin(str) {
 
 translatePigLatin("consonant");
 
+// pig latin
+
+function translatePigLatin(str) {
+
+  let reCon = /(^[^aeiou]+)(\w*)/gi;
+
+  if(/^[aeiou]/.test(str)) {
+    str = str + "way";
+  } else {
+    str = reCon[Symbol.replace](str, '$2$1ay')
+  };
+  return str;
+}
+
+translatePigLatin("eight");
+
