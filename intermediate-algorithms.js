@@ -205,3 +205,39 @@ function myReplace(str, before, after) {
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 
+// The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+
+// Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+
+// Return the provided character as the first element in each array.
+
+function pairElement(str) {
+  let result = []; 
+  for(let i = 0; i < str.length; i++){
+    result.push(checkPair(str[i]));
+  };
+
+  function checkPair(elem) {
+    let elemArr = [];
+    if(elem === "A") {
+      elemArr.push(elem);
+      elemArr.push("T");
+    } else if(elem === "T") { 
+      elemArr.push(elem);
+      elemArr.push("A");   
+    } else if(elem === "C") {
+      elemArr.push(elem);
+      elemArr.push("G");   
+    } else if(elem === "G") {
+      elemArr.push(elem);
+      elemArr.push("C");   
+    }
+    return elemArr;
+  };
+
+  return result;
+}
+
+pairElement("GCG");
+
+
