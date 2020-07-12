@@ -240,4 +240,23 @@ function pairElement(str) {
 
 pairElement("GCG");
 
+// Find the missing letter in the passed letter range and return it.
+// If all letters are present in the range, return undefined.
+
+function fearNotLetter(str) {
+  let alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  let index = alpha.findIndex(element => element === str[0]);
+
+  for(let i = 0; i < str.length; i++) {
+    if(str[i] !== alpha[index]) {
+      return alpha[index];
+    } else {
+      index++;
+    }
+  }
+  return undefined;
+}
+
+fearNotLetter("abce");
+
 
