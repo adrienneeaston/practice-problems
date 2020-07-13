@@ -205,3 +205,101 @@ function myReplace(str, before, after) {
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 
+// The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
+
+// Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+
+// Return the provided character as the first element in each array.
+
+function pairElement(str) {
+  let result = []; 
+  for(let i = 0; i < str.length; i++){
+    result.push(checkPair(str[i]));
+  };
+
+  function checkPair(elem) {
+    let elemArr = [];
+    if(elem === "A") {
+      elemArr.push(elem);
+      elemArr.push("T");
+    } else if(elem === "T") { 
+      elemArr.push(elem);
+      elemArr.push("A");   
+    } else if(elem === "C") {
+      elemArr.push(elem);
+      elemArr.push("G");   
+    } else if(elem === "G") {
+      elemArr.push(elem);
+      elemArr.push("C");   
+    }
+    return elemArr;
+  };
+
+  return result;
+}
+
+pairElement("GCG");
+
+// Find the missing letter in the passed letter range and return it.
+// If all letters are present in the range, return undefined.
+
+function fearNotLetter(str) {
+  let alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  let index = alpha.findIndex(element => element === str[0]);
+
+  for(let i = 0; i < str.length; i++) {
+    if(str[i] !== alpha[index]) {
+      return alpha[index];
+    } else {
+      index++;
+    }
+  }
+  return undefined;
+}
+
+fearNotLetter("abce");
+
+// unknown number of arguments - Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+function uniteUnique(arr) {
+  let args = [...arguments];
+  let newArr = [];
+  for(let i = 0; i < args.length; i++) {
+    for(let j = 0; j < args[i].length; j++) {
+      if(newArr.includes(args[i][j]) === false) {
+        newArr.push(args[i][j]);
+      }
+    }
+  }
+  return newArr;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// passing a function into regex replace - Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+function convertHTML(str) {
+
+  function convertChar(char) {
+    if(char === "&") {
+      char = "&amp;";
+    } else if(char === "<") {
+      char = "&lt;";
+    } else if(char === ">") {
+      char = "&gt;"
+    } else if(char === "\"") {
+      char = "&quot;";
+    } else if (char === "'") {
+      char = "&apos;";
+    }
+    return char;
+  };
+
+  let reg = /&|<|>|"|'/g;
+  str = str.replace(reg, convertChar);
+  return str;
+}
+
+convertHTML("Dolce & Gabbana");
+
+
