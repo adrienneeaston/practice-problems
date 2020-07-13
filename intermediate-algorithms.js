@@ -302,4 +302,25 @@ function convertHTML(str) {
 
 convertHTML("Dolce & Gabbana");
 
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+function sumFibs(num) {
+  if(num <= 0) {
+    return 0;
+  }
+
+  let arr = [1, 1];
+  let total = 0;
+
+  while(arr[0] + arr[1] <= num) {
+    arr.unshift(arr[0] + arr[1]);
+  } 
+  
+  total = arr.filter(element => element % 2 === 1).reduce((a, b) => a + b);
+
+  return total;
+}
+
+sumFibs(1000);
+
 
