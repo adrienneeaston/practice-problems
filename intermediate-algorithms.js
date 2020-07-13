@@ -302,4 +302,47 @@ function convertHTML(str) {
 
 convertHTML("Dolce & Gabbana");
 
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+function sumFibs(num) {
+  if(num <= 0) {
+    return 0;
+  }
+
+  let arr = [1, 1];
+  let total = 0;
+
+  while(arr[0] + arr[1] <= num) {
+    arr.unshift(arr[0] + arr[1]);
+  } 
+  
+  total = arr.filter(element => element % 2 === 1).reduce((a, b) => a + b);
+
+  return total;
+}
+
+sumFibs(1000);
+
+// A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. For example, 2 is a prime number because it is only divisible by 1 and 2. In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
+
+// Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
+
+function sumPrimes(num) {
+  let arr = [];
+  for(let i = 2; i <= num; i++) {
+    let flag = true;
+    for(let j = 2; j < i; j++){
+      if(i % j === 0) {
+        flag = false;
+      }
+    }
+    if(flag == true) {
+      arr.push(i);
+    }
+  }
+  return arr.reduce((a, b) => a + b);
+};
+
+sumPrimes(10);
+
 
