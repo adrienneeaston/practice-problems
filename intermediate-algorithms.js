@@ -276,4 +276,30 @@ function uniteUnique(arr) {
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 
+// passing a function into regex replace - Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+function convertHTML(str) {
+
+  function convertChar(char) {
+    if(char === "&") {
+      char = "&amp;";
+    } else if(char === "<") {
+      char = "&lt;";
+    } else if(char === ">") {
+      char = "&gt;"
+    } else if(char === "\"") {
+      char = "&quot;";
+    } else if (char === "'") {
+      char = "&apos;";
+    }
+    return char;
+  };
+
+  let reg = /&|<|>|"|'/g;
+  str = str.replace(reg, convertChar);
+  return str;
+}
+
+convertHTML("Dolce & Gabbana");
+
 
