@@ -345,4 +345,67 @@ function sumPrimes(num) {
 
 sumPrimes(10);
 
+// Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+
+function smallestCommons(arr) {
+  let newArr = [];
+  let resultArr = [];
+  createArr(arr);
+
+  for(let i = newArr.length - 1; i > 0; i--) {
+    for(let j = 0; j < newArr[i].length; j ++) {
+      if(!resultArr.includes(newArr[i][j])) {
+        resultArr.push(newArr[i][j]);
+      } else {
+        // if not unique, do we have enough?
+      }
+    }
+  }
+  console.log(resultArr);
+
+  function createArr(arr) {
+    let low = 0;
+    let high = 0;
+
+    if(arr[0] > arr[1]) {
+      high = arr[0];
+      low = arr[1];
+    } else {
+      high = arr[1];
+      low = arr[0];
+    }
+
+    for(let i = low; i <= high; i++) {
+      let elemArr = [];
+      newArr.push(factor(i));
+    }
+    return newArr;
+  }
+
+  function factor(num) {
+    let n = num;
+    let arr = [];
+    while(n % 2 === 0) {
+      arr.push(2);
+      n = n / 2;
+    }
+    for(let i = 3; i <= Math.sqrt(num); i+=2) {
+      if(n % i === 0) {
+        arr.push(i);
+        n = n / i;
+      }
+    }
+    if(n > 2) {
+      arr.push(n);
+    }
+    return arr;
+  };
+
+  return newArr;
+};
+
+// smallestCommons([1,6]);
+console.log(smallestCommons([1,6]));
+// console.log(factor(100));
+
 
