@@ -348,64 +348,60 @@ sumPrimes(10);
 // Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
 
 function smallestCommons(arr) {
-  let newArr = [];
-  let resultArr = [];
-  createArr(arr);
 
-  for(let i = newArr.length - 1; i > 0; i--) {
-    for(let j = 0; j < newArr[i].length; j ++) {
-      if(!resultArr.includes(newArr[i][j])) {
-        resultArr.push(newArr[i][j]);
-      } else {
-        // if not unique, do we have enough?
-      }
+  let obj = {};
+  let product = 1;
+
+  function calcProduct() {
+    createObj(arr);
+    console.log(obj);
+    for(const property in obj) {
+      product = product * Math.pow(property, obj[property])
     }
-  }
-  console.log(resultArr);
-
-  function createArr(arr) {
-    let low = 0;
-    let high = 0;
-
-    if(arr[0] > arr[1]) {
-      high = arr[0];
-      low = arr[1];
-    } else {
-      high = arr[1];
-      low = arr[0];
-    }
-
-    for(let i = low; i <= high; i++) {
-      let elemArr = [];
-      newArr.push(factor(i));
-    }
-    return newArr;
+    return product;
   }
 
-  function factor(num) {
+  function createObj(obj) {
+    let min = Math.min(arr[0], arr[1]);
+    let max = Math.max(arr[0], arr[1]);
+
+    for(let i = min; i <= max; i++) {
+      updateObj(i);
+    }
+    return obj;
+  }
+
+  function updateObj(num) {
     let n = num;
     let arr = [];
+    let counter = 0;
     while(n % 2 === 0) {
-      arr.push(2);
+      counter++;
       n = n / 2;
     }
+    if(!obj[2] || counter > obj[2]) {
+      obj[2] = counter;
+    } 
+
     for(let i = 3; i <= Math.sqrt(num); i+=2) {
-      if(n % i === 0) {
-        arr.push(i);
+      counter = 0;
+      while(n % i === 0) {
+        counter++;
         n = n / i;
       }
+      if(!obj[i] || counter > obj[i]) {
+        obj[i] = counter;
+      }
+    } 
+
+    if(!obj[n]) {
+      obj[n] = 1;         
     }
-    if(n > 2) {
-      arr.push(n);
-    }
-    return arr;
   };
 
-  return newArr;
+  calcProduct();
+  return product;
 };
 
 // smallestCommons([1,6]);
-console.log(smallestCommons([1,6]));
-// console.log(factor(100));
-
-
+console.log(smallestCommons([2, 10]));
