@@ -420,7 +420,7 @@ function dropElements(arr, func) {
  
 dropElements([1, 2, 3], function(n) {return n < 3; });
 
-// Flatten a nested array. You must account for varying levels of nesting.
+// Recursion - Flatten a nested array. You must account for varying levels of nesting.
 
 function steamrollArray(arr, flat=[]) {
   arr.forEach(element => {
