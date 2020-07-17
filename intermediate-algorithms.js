@@ -403,5 +403,34 @@ function smallestCommons(arr) {
   return product;
 };
 
-// smallestCommons([1,6]);
-console.log(smallestCommons([2, 10]));
+smallestCommons([1,6]);
+
+// Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+
+// Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+
+function dropElements(arr, func) {
+  let i = 0;
+  while(func(arr[i]) == false) {
+    arr.shift(arr[i]);
+  }
+  console.log(arr);
+  return arr;
+}
+ 
+dropElements([1, 2, 3], function(n) {return n < 3; });
+
+// Recursion - Flatten a nested array. You must account for varying levels of nesting.
+
+function steamrollArray(arr, flat=[]) {
+  arr.forEach(element => {
+    if(Array.isArray(element)) {
+      steamrollArray(element, flat);
+    } else {
+      flat.push(element);
+    }
+  });
+  return flat;
+}
+  
+steamrollArray([1, [2], [3, [[4]]]]);
