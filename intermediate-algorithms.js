@@ -473,7 +473,27 @@ truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "ma
 // Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
  
 function addTogether() {
-  return false;
-}
+  let arg1 = arguments[0];
+  let arg2 = arguments[1];
+
+  function moreSum(num) {
+    if(typeof (arg1 + num) === "number") {
+      return arg1 + num;
+    } else {
+      return undefined;
+    }
+  };
+
+  if(typeof arg1 !=="number") {
+    return undefined;
+  };
+
+  if(arg2 === undefined){
+    return moreSum;
+  };
+
+  return moreSum(arg2);
+  
+};
 
 addTogether(2,3);
