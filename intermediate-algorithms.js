@@ -538,3 +538,26 @@ var Person = function(firstAndLast) {
 
 var bob = new Person('Bob Ross');
 bob.getFullName();
+
+// Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+
+  function calculate(avg) {
+    let t = 2 * Math.PI * Math.sqrt(Math.pow(avg + earthRadius, 3)/GM);
+    return Math.round(t);
+  }
+
+  function modify(obj) {
+    obj.orbitalPeriod = calculate(obj.avgAlt);
+    delete obj.avgAlt;
+    return obj;
+  } 
+
+  arr.forEach(modify);
+  return arr;
+}
+
+orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]);
