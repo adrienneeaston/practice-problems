@@ -597,37 +597,46 @@ telephoneCheck("555-555-5555");
 function checkCashRegister(price, cash, cid) {
   let change;
   let obj = {};
+  let status = "OPEN";
   let val = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
   cid = cid.reverse();
 
-  let diff = cash - price;
-  for(let i = val.length - 1; i > 0; i--) {
-    if(diff/val[i] > 0) {
-
-    }
-
-  }
-
-  function checkDrawer(total) {
+  function checkDrawer(changeLeft) {
     let arr = [];
+    let moneyLeft = 0;
     for(let i = 0; i < cid.length; i++) {
-      console.log("index", i);
-      if(total >= val[i]) {
-        let want = Math.floor(total/val[i]*val[i]);
+      moneyLeft += cid[i][1];
+      if(changeLeft >= val[i]) {
+        let want = Math.floor(changeLeft/val[i])*val[i];
         let take = Math.min(want, cid[i][1]);
-        console.log("take", take);
-        total -= take;
+        changeLeft -= take; 
+        moneyLeft -= take;
         arr.push([cid[i][0], take]);
-
       }
-      // console.log("total", total);
+      changeLeft = Number(Math.round(changeLeft + 'e2') + 'e-2');
+    }
+    if(changeLeft == 0 && moneyLeft == 0) {
+      status = "CLOSED";
+    }
+    if(changeLeft.toFixed(2) > 0) {
+      status = "INSUFFICIENT_FUNDS";
     }
     return arr;
   }
 
-  console.log(checkDrawer(25));
+  let diff = cash - price;
+  checkDrawer(diff);
+  obj["status"] = status;
 
-  return change;
+  if(status === "OPEN") {
+    obj["change"] = checkDrawer(diff);
+    return obj;
+  } else if(status === "CLOSED") {
+    obj["change"] = cid.reverse();
+    return obj;
+  }
+  obj["change"] = [];
+  return obj;
 }
 
 checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
