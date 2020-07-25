@@ -561,3 +561,24 @@ function orbitalPeriod(arr) {
 }
 
 orbitalPeriod([{name: "iss", avgAlt: 413.6}, {name: "hubble", avgAlt: 556.7}, {name: "moon", avgAlt: 378632.553}]);
+
+// One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount.
+
+// A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.
+
+// Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+
+function rot13(str) {
+  for(let i = 0; i < str.length; i++) {
+    if(/[A-Z]/.test(str[i])) {
+      let code = str.charCodeAt(i) + 13;
+      if(code > 90) {
+        code = 65 + code - 91
+      }
+      str = str.slice(0, i) + String.fromCharCode(code) + str.slice(i + 1);
+    }
+  }
+  return str;
+}
+
+rot13("SERR PBQR PNZC");
