@@ -5,8 +5,10 @@ class MyComponent extends React.Component {
     super(props);
   }
   render() {
-    <div>
-      <h1>Hello React!</h1>
-    </div>
+    return (
+      <div>
+        <h1>Hello React!</h1>
+      </div>
+    )
   }
 };
