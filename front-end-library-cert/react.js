@@ -126,3 +126,99 @@ class TypesOfFood extends React.Component {
 };
 
 ReactDOM.render(<TypesOfFood />, document.getElementById('challenge-node'));
+
+// Write React componant from scratch
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>My First React Component!</h1>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<MyComponent />, document.getElementById('challenge-node'));
+
+// Pass props to a stateless functional component
+
+const CurrentDate = (props) => {
+  return (
+    <div>
+      <p>The current date is:{props.date}</p>
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        <CurrentDate date={Date()} />
+      </div>
+    );
+  }
+};
+
+// Pass an array as props
+
+const List = (props) => {
+  return <p>{props.tasks.join(", ")}</p>
+};
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        <List tasks={["walk dog", "workout"]} />
+        <h2>Tomorrow</h2>
+        <List tasks={["eat", "sleep", "write code"]} />
+      </div>
+    );
+  }
+};
+
+// Use default props
+
+const ShoppingCart = (props) => {
+  return (
+    <div>
+      <h1>Shopping Cart Component</h1>
+    </div>
+  )
+};
+
+ShoppingCart.defaultProps = { items: 0 }
+
+// Override default props
+
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items quantity={10} />
+  }
+};
