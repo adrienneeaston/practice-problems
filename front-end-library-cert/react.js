@@ -414,3 +414,44 @@ class MyComponent extends React.Component {
     );
   }
 };
+
+// Use state to toggle an element
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibility: false
+    };
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+  }
+ 
+  toggleVisibility() {
+    if(this.state.visibility) {
+      this.setState((state, props) => ({
+        visibility: false
+      }));
+      } else {
+        this.setState((state, props) => ({
+          visibility: true
+      }));
+    };
+  };
+
+  render() {
+    if (this.state.visibility) {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+          <h1>Now you see me!</h1>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+        </div>
+      );
+    }
+  }
+};
