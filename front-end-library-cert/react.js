@@ -243,3 +243,69 @@ class ShoppingCart extends React.Component {
     return <Items />
   }
 };
+
+// access props using this.props
+
+class ReturnTempPassword extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+            <p>Your temporary password is: <strong>{ this.props.tempPassword }</strong></p>
+        </div>
+    );
+  }
+};
+
+class ResetPassword extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+          <h2>Reset Password</h2>
+          <h3>We've generated a new temporary password for you.</h3>
+          <h3>Please reset this password from your account settings ASAP.</h3>
+            <ReturnTempPassword tempPassword={"password"} />
+        </div>
+    );
+  }
+};
+
+// Review Using Props with Stateless Functional Components
+
+class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper/>
+      </div>
+    );
+  }
+};
+
+const Camper = (props) => {
+  return (
+    <div>
+      <h3>Camper's name:</h3>
+      <p>{props.name}</p>
+    </div>
+  )
+};
+
+Camper.defaultProps = {
+  name: 'CamperBot'
+};
+
+Camper.propTypes = {
+  name: PropTypes.string.isRequired
+};
+
