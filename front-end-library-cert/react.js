@@ -764,3 +764,13 @@ class Controller extends React.Component {
     );
   }
 };
+
+// Inline Styles
+
+class Colorful extends React.Component {
+  render() {
+    return (
+      <div style={{color: "red", fontSize: 72}}>Big Red</div>
+    );
+  }
+};
