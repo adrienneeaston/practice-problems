@@ -5,3 +5,11 @@ const reducer = (state = 5) => {
 }
 
 let store = Redux.createStore(reducer);
+
+// Get state from the redux store
+
+const store = Redux.createStore(
+  (state = 5) => state
+);
+
+let currentState = store.getState();
