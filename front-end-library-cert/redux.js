@@ -13,3 +13,19 @@ const store = Redux.createStore(
 );
 
 let currentState = store.getState();
+
+// Define a redux action
+
+const action = {
+  type: "LOGIN"
+};
+
+// Define an action creator
+
+const action = {
+  type: 'LOGIN'
+}
+
+function actionCreator() {
+  return action;
+}
