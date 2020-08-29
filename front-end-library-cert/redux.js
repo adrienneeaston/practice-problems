@@ -287,3 +287,37 @@ const store = Redux.createStore(
   asyncDataReducer,
   Redux.applyMiddleware(ReduxThunk.default)
 );
+
+// write a counter with redux
+
+// Defines constants for increment and decerement action types
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+
+// defines the counter reducer which will increment or decrement the state based on the action it receives
+const counterReducer = (state = 0, action) => {
+  switch(action.type) {
+    case INCREMENT:
+      return state + 1;
+    case DECREMENT:
+      return state - 1;
+    default:
+      return state;
+  }
+}; 
+
+ // defines action creators for incrementing and decrementing
+const incAction = () => {
+  return {
+    type: INCREMENT
+  }
+};
+
+const decAction = () => {
+  return {
+    type: DECREMENT
+  }
+};
+
+// defines the Redux store, passing in the reducers
+const store = Redux.createStore(counterReducer); 
