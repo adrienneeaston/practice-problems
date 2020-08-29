@@ -12,3 +12,47 @@ class DisplayMessages extends React.Component {
     return <div />
   }
 };
+
+// Manage state locally first
+
+class DisplayMessages extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      messages: []
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.submitMessage = this.submitMessage.bind(this);
+  }
+  
+  handleChange(event) {
+    this.setState({
+      input: event.target.value
+    })
+  }
+
+  submitMessage() {
+    let messageArray = this.state.messages.concat(this.state.input);
+    this.setState({
+      messages: messageArray,
+      input: ''
+    })
+  }
+
+  render() {
+    const items = this.state.messages.map(element => {
+      return <li>{element}</li>
+    });
+    return (
+      <div>
+        <h2>Type in a new Message:</h2>
+        <input onChange={this.handleChange} value={this.state.input}/><br/>
+        <button onClick={this.submitMessage}>Submit message</button>
+        <ul>
+          {items}
+        </ul>
+      </div>
+    );
+  }
+};
